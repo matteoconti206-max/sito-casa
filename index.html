@@ -7,96 +7,103 @@
 
 <style>
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    background: #0f172a;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     color: white;
     text-align: center;
 }
 
-.container {
-    margin-top: 40px;
+/* TITOLI */
+h1 {
+    margin-top: 30px;
+    font-size: 2.5rem;
 }
 
-button {
+h2 {
+    margin-bottom: 20px;
+}
+
+/* BOTTONI */
+.menu button {
     display: block;
     margin: 15px auto;
-    padding: 15px 30px;
+    padding: 15px;
+    width: 80%;
+    max-width: 350px;
     font-size: 18px;
     border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    background: #38bdf8;
+    border-radius: 15px;
+    background: rgba(56,189,248,0.9);
+    color: black;
     font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
+.menu button:hover {
+    transform: scale(1.05);
+}
+
+/* SEZIONI */
 .section {
     display: none;
     padding: 20px;
 }
 
-/* Regole */
-.rules {
-    list-style: none;
+/* TORNA */
+.back {
+    margin-top: 20px;
+    background: #334155;
+    color: white;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    margin: auto;
+    border-radius: 15px;
     max-width: 500px;
-    margin: auto;
-    padding: 0;
-    text-align: left;
 }
 
+/* REGOLE */
 .rules li {
-    background: rgba(255,255,255,0.1);
-    padding: 12px;
+    background: rgba(255,255,255,0.15);
     margin: 8px 0;
-    border-radius: 10px;
-}
-
-/* Tabella */
-.tabella {
-    border-collapse: collapse;
-    margin: auto;
-    width: 95%;
-    max-width: 700px;
-}
-
-.tabella th, .tabella td {
-    border: 1px solid rgba(255,255,255,0.3);
     padding: 10px;
+    border-radius: 10px;
+    list-style: none;
 }
 
-.tabella th {
-    background: rgba(255,255,255,0.2);
+/* TABELLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
 }
 
-.tabella td {
-    background: rgba(255,255,255,0.1);
+td, th {
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px;
 }
 
-/* Form */
+/* FORM */
 input, textarea {
-    width: 80%;
-    max-width: 400px;
-    padding: 12px;
+    width: 90%;
+    padding: 10px;
     border-radius: 10px;
     border: none;
     margin-bottom: 10px;
 }
 
-/* Beneficenza */
-.card {
-    background: rgba(255,255,255,0.1);
-    padding: 20px;
-    margin: auto;
-    border-radius: 15px;
-    max-width: 400px;
-}
-
+/* IBAN */
 .iban {
     font-weight: bold;
-    word-break: break-all;
-    background: rgba(0,0,0,0.3);
+    background: black;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 </style>
 
@@ -105,98 +112,103 @@ function showSection(id) {
     document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
     document.getElementById(id).style.display = 'block';
 }
+
+function goHome() {
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+}
 </script>
 
 </head>
 
 <body>
 
-<div class="container">
-    <h1>🏠 Casa</h1>
+<h1>🏠 Casa</h1>
 
-    <button onclick="showSection('regole')">Regole della Casa</button>
-    <button onclick="showSection('raccolta')">Raccolta Indifferenziata</button>
-    <button onclick="showSection('feedback')">Feedback</button>
-    <button onclick="showSection('beneficienza')">Beneficienza</button>
+<div class="menu">
+    <button onclick="showSection('regole')">📜 Regole della Casa</button>
+    <button onclick="showSection('raccolta')">🗑 Raccolta</button>
+    <button onclick="showSection('feedback')">💬 Feedback</button>
+    <button onclick="showSection('beneficenza')">💶 Beneficienza</button>
 </div>
 
 <!-- REGOLE -->
 <div id="regole" class="section">
-<h2>Regole della Casa</h2>
+<h2>Regole</h2>
+<div class="card">
 <ul class="rules">
 <li>💸 Chi rompe paga</li>
-<li>♻️ Rispetta la raccolta differenziata</li>
+<li>♻️ Rispetta la raccolta</li>
 <li>⚠️ Non disturbare Sara</li>
-<li>🚽 Lascia il bagno pulito</li>
-<li>🍺 Solo birra, no vino</li>
-<li>🔇 No rumori inutili</li>
+<li>🚽 Lascia pulito</li>
+<li>🍺 Solo birra</li>
+<li>🔇 No rumori</li>
 <li>⏰ Rientro entro l'1</li>
 <li>🐱 Rispetto per i gatti</li>
-<li>❌ No rispetto per F. Giordano</li>
-<li>🔁 Non infrangere la regola 3</li>
+<li>❌ No rispetto F. Giordano</li>
+<li>🔁 Non infrangere regola 3</li>
 </ul>
+</div>
+
+<button class="back" onclick="goHome()">⬅ Torna</button>
 </div>
 
 <!-- RACCOLTA -->
 <div id="raccolta" class="section">
-<h2>Raccolta Rifiuti</h2>
+<h2>Raccolta</h2>
 
-<table class="tabella">
+<div class="card">
+<table>
 <tr>
-<th>Dom sera</th>
-<th>Lun sera</th>
-<th>Mar sera</th>
-<th>Mer sera</th>
-<th>Gio sera</th>
-<th>Ven sera</th>
-<th>Sab sera</th>
+<th>Dom</th><th>Lun</th><th>Mar</th><th>Mer</th><th>Gio</th><th>Ven</th><th>Sab</th>
 </tr>
-
 <tr>
-<td>Organico</td>
-<td>Indifferenziato</td>
+<td>Org</td>
+<td>Ind</td>
 <td>Carta</td>
-<td>Organico</td>
+<td>Org</td>
 <td>Plastica</td>
-<td>Organico</td>
+<td>Org</td>
 <td>-</td>
 </tr>
 </table>
 
 <br>
 
-CalendarioPortaAPorta_UD_Web.pdf target="_blank">
-<button>Apri PDF</button>
+CalendarioPortaAPorta_UD_Web.pdf
+<button>📄 PDF</button>
 </a>
+</div>
 
+<button class="back" onclick="goHome()">⬅ Torna</button>
 </div>
 
 <!-- FEEDBACK -->
 <div id="feedback" class="section">
 <h2>Feedback</h2>
 
-matteoconti206@gmail.com
+<div class="card">
 <form action="mailto:matteoconti206@gmail.com" method="POST" enctype="text/plain">
 <input type="text" name="Nome" placeholder="Nome" required>
 <input type="text" name="Cognome" placeholder="Cognome" required>
-<textarea name="Messaggio" rows="5" placeholder="Scrivi qui..."></textarea>
-<br>
+<textarea name="Messaggio" placeholder="Scrivi..." rows="5"></textarea>
 <button type="submit">Invia</button>
 </form>
 </div>
 
+<button class="back" onclick="goHome()">⬅ Torna</button>
+</div>
+
 <!-- BENEFICENZA -->
-<div id="beneficienza" class="section">
+<div id="beneficenza" class="section">
 <h2>Beneficienza</h2>
 
 <div class="card">
-<p><strong>Nome:</strong> Matteo</p>
-<p><strong>Cognome:</strong> Conti</p>
-<p><strong>IBAN:</strong></p>
+<p><strong>Matteo Conti</strong></p>
 <p class="iban">IT35Q03268223000EMH02558777</p>
 <p>Grazie ❤️</p>
 </div>
 
+<button class="back" onclick="goHome()">⬅ Torna</button>
 </div>
 
 </body>
