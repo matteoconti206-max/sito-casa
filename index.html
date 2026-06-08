@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+button {
+    display: block;
+    margin: 15px auto;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #38bdf8;
+    font-weight: bold;
+}
+
+.section {
+    display: none;
+    padding: 20px;
+}
+
+/* Regole */
+.rules {
+    list-style: none;
+    max-width: 500px;
+    margin: auto;
+    padding: 0;
+    text-align: left;
+}
+
+.rules li {
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+}
+
+/* Tabella */
+.tabella {
+    border-collapse: collapse;
+    margin: auto;
+    width: 95%;
+    max-width: 700px;
+}
+
+.tabella th, .tabella td {
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 10px;
+}
+
+.tabella th {
+    background: rgba(255,255,255,0.2);
+}
+
+.tabella td {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Form */
+input, textarea {
+    width: 80%;
+    max-width: 400px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+/* Beneficenza */
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    margin: auto;
+    border-radius: 15px;
+    max-width: 400px;
+}
+
+.iban {
+    font-weight: bold;
+    word-break: break-all;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 8px;
+}
+</style>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🏠 Casa</h1>
+
+    <button onclick="showSection('regole')">Regole della Casa</button>
+    <button onclick="showSection('raccolta')">Raccolta Indifferenziata</button>
+    <button onclick="showSection('feedback')">Feedback</button>
+    <button onclick="showSection('beneficienza')">Beneficienza</button>
+</div>
+
+<!-- REGOLE -->
+<div id="regole" class="section">
+<h2>Regole della Casa</h2>
+<ul class="rules">
+<li>💸 Chi rompe paga</li>
+<li>♻️ Rispetta la raccolta differenziata</li>
+<li>⚠️ Non disturbare Sara</li>
+<li>🚽 Lascia il bagno pulito</li>
+<li>🍺 Solo birra, no vino</li>
+<li>🔇 No rumori inutili</li>
+<li>⏰ Rientro entro l'1</li>
+<li>🐱 Rispetto per i gatti</li>
+<li>❌ No rispetto per F. Giordano</li>
+<li>🔁 Non infrangere la regola 3</li>
+</ul>
+</div>
+
+<!-- RACCOLTA -->
+<div id="raccolta" class="section">
+<h2>Raccolta Rifiuti</h2>
+
+<table class="tabella">
+<tr>
+<th>Dom sera</th>
+<th>Lun sera</th>
+<th>Mar sera</th>
+<th>Mer sera</th>
+<th>Gio sera</th>
+<th>Ven sera</th>
+<th>Sab sera</th>
+</tr>
+
+<tr>
+<td>Organico</td>
+<td>Indifferenziato</td>
+<td>Carta</td>
+<td>Organico</td>
+<td>Plastica</td>
+<td>Organico</td>
+<td>-</td>
+</tr>
+</table>
+
+<br>
+
+CalendarioPortaAPorta_UD_Web.pdf target="_blank">
+<button>Apri PDF</button>
+</a>
+
+</div>
+
+<!-- FEEDBACK -->
+<div id="feedback" class="section">
+<h2>Feedback</h2>
+
+matteoconti206@gmail.com
+<form action="mailto:matteoconti206@gmail.com" method="POST" enctype="text/plain">
+<input type="text" name="Nome" placeholder="Nome" required>
+<input type="text" name="Cognome" placeholder="Cognome" required>
+<textarea name="Messaggio" rows="5" placeholder="Scrivi qui..."></textarea>
+<br>
+<button type="submit">Invia</button>
+</form>
+</div>
+
+<!-- BENEFICENZA -->
+<div id="beneficienza" class="section">
+<h2>Beneficienza</h2>
+
+<div class="card">
+<p><strong>Nome:</strong> Matteo</p>
+<p><strong>Cognome:</strong> Conti</p>
+<p><strong>IBAN:</strong></p>
+<p class="iban">IT35Q03268223000EMH02558777</p>
+<p>Grazie ❤️</p>
+</div>
+
+</div>
+
+</body>
+</html>
