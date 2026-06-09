@@ -73,3 +73,164 @@ h1 {
     padding: 10px;
     background: #0f172a;
     border-radius: 8px;
+    list-style: none;
+    text-align: left;
+}
+
+/* TABELLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* FORM */
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+/* BOTTONI SECONDARI */
+.back {
+    margin-top: 20px;
+    background: #475569;
+    color: white;
+}
+
+.copy-btn {
+    background: #38bdf8;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* IBAN */
+.iban {
+    background: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+</style>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+}
+
+function goHome() {
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+}
+
+function copiaIBAN() {
+    navigator.clipboard.writeText("IT35Q03268223000EMH02558777");
+    alert("IBAN copiato ✅");
+}
+</script>
+
+</head>
+
+<body>
+
+<h1>Benvenuti in casa</h1>
+
+<div class="menu">
+<button onclick="showSection('regole')">Regole della Casa</button>
+<button onclick="showSection('raccolta')">Raccolta Indifferenziata</button>
+<button onclick="showSection('feedback')">FeedBack</button>
+<button onclick="showSection('beneficenza')">Beneficienza</button>
+</div>
+
+<!-- REGOLE -->
+<div id="regole" class="section">
+<h2>Regole della Casa</h2>
+
+<div class="card">
+<ul class="rules">
+<li>1)Chi rompe Paga!</li>
+<li>2)Rispetta la raccolta differenziata (o la tua spazzatura te la porti con te)</li>
+<li>3)Non rompere il cazzo a Sara sennò se la riprende poi con me</li>
+<li>4)Lasciare il cesso pulito come l'hai trovato</li>
+<li>5)Escluso la prima volta... chiunque voglia portare da bere cose a casa.... birra e non vino!</li>
+<li>6)Non si fa rumore escluso eventi rilevanti</li>
+<li>7)Durante la settimana dopo le 1.00 am a casa, eccetto diverse indicazioni del sottoscritto</li>
+<li>8)Non mancare rispetto ai gatti, in quanto poi infrangeresti la regola n.3</li>
+<li>9)Non si rispetta F.Giordano per nessuna reale motivazione</li>
+<li>10)Non infrangere la regola n.3</li>
+</ul>
+</div>
+
+<button class="back" onclick="goHome()">⬅ Torna</button>
+</div>
+
+<!-- RACCOLTA -->
+<div id="raccolta" class="section">
+<h2>Raccolta Indifferenziata</h2>
+
+<div class="card">
+<table>
+<tr>
+<th>Dom</th><th>Lun</th><th>Mar</th><th>Mer</th><th>Gio</th><th>Ven</th><th>Sab</th>
+</tr>
+<tr>
+<td>Org</td>
+<td>Ind</td>
+<td>Carta</td>
+<td>Org</td>
+<td>Plastica</td>
+<td>Org</td>
+<td>-</td>
+</tr>
+</table>
+
+<br>
+
+CalendarioPortaAPorta_UD_Web.pdf
+<button>Apri PDF</button>
+</a>
+</div>
+
+<button class="back" onclick="goHome()">⬅ Torna</button>
+</div>
+
+<!-- FEEDBACK -->
+<div id="feedback" class="section">
+<h2>FeedBack</h2>
+
+<div class="card">
+<form action="mailto:matteoconti206@gmail.com" method="POST" enctype="text/plain">
+<input type="text" name="Nome" placeholder="Nome" required>
+<input type="text" name="Cognome" placeholder="Cognome" required>
+<textarea name="Messaggio" rows="5" placeholder="Scrivi..."></textarea>
+<button type="submit">Invia</button>
+</form>
+</div>
+
+<button class="back" onclick="goHome()">⬅ Torna</button>
+</div>
+
+<!-- BENEFICENZA -->
+<div id="beneficenza" class="section">
+<h2>Beneficienza</h2>
+
+<div class="card">
+<p><strong>Matteo Conti</strong></p>
+<p class="iban">IT35Q03268223000EMH02558777</p>
+<button class="copy-btn" onclick="copiaIBAN()">Copia IBAN</button>
+<p>Grazie ❤️</p>
+</div>
+
+<button class="back" onclick="goHome()">⬅ Torna</button>
+</div>
+
+</body>
+</html>
