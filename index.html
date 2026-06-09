@@ -9,21 +9,26 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    background: linear-gradient(45deg, #0f172a, #1e3a8a, #0ea5e9);
+    background-size: 300% 300%;
+    animation: bg 10s infinite alternate;
     color: white;
     text-align: center;
 }
 
-/* TITOLI */
+@keyframes bg {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
 h1 {
-    margin-top: 30px;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: gold;
+    text-shadow: 0 0 20px rgba(255,215,0,0.7);
 }
 
-h2 {
-    margin-bottom: 20px;
-}
-
-/* MENU */
+/* BOTTONI */
 .menu button {
     display: block;
     margin: 15px auto;
@@ -32,13 +37,18 @@ h2 {
     max-width: 350px;
     font-size: 18px;
     border: none;
-    border-radius: 15px;
-    background: rgba(56,189,248,0.9);
+    border-radius: 20px;
+    background: linear-gradient(45deg, gold, orange);
     color: black;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 0 15px gold;
+}
+
+.menu button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px gold;
 }
 
 .menu button:active {
@@ -49,36 +59,29 @@ h2 {
 .section {
     display: none;
     padding: 20px;
-    animation: fade 0.4s ease;
+    animation: fade 0.5s;
 }
 
 @keyframes fade {
     from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-.back {
-    margin-top: 20px;
-    background: #334155;
-    color: white;
+    to {opacity: 1;}
 }
 
 /* CARD */
 .card {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(12px);
-    padding: 15px;
-    margin: auto;
-    border-radius: 15px;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 20px;
     max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin: auto;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
 }
 
 /* REGOLE */
 .rules li {
-    background: rgba(255,255,255,0.15);
-    margin: 8px 0;
+    margin: 10px 0;
     padding: 10px;
+    background: rgba(255,255,255,0.15);
     border-radius: 10px;
     list-style: none;
 }
@@ -90,11 +93,11 @@ table {
 }
 
 td, th {
-    border: 1px solid rgba(255,255,255,0.2);
     padding: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* FORM */
+/* INPUT */
 input, textarea {
     width: 90%;
     padding: 10px;
@@ -109,17 +112,25 @@ input, textarea {
     padding: 10px;
     border-radius: 10px;
     font-weight: bold;
+    color: gold;
 }
 
+/* TORNA */
+.back {
+    margin-top: 20px;
+    background: crimson;
+    color: white;
+}
+
+/* COPY */
 .copy-btn {
-    margin-top: 10px;
-    padding: 10px;
-    background: #38bdf8;
+    background: gold;
+    color: black;
     border: none;
+    padding: 10px;
     border-radius: 10px;
     cursor: pointer;
 }
-
 </style>
 
 <script>
@@ -142,30 +153,30 @@ function copiaIBAN() {
 
 <body>
 
-<h1>🏠 Casa</h1>
+<h1>☠️ Casa Pirata ☠️</h1>
 
 <div class="menu">
-<button onclick="showSection('regole')">📜 Regole</button>
-<button onclick="showSection('raccolta')">🗑 Raccolta</button>
-<button onclick="showSection('feedback')">💬 Feedback</button>
-<button onclick="showSection('beneficenza')">💶 Beneficienza</button>
+<button onclick="showSection('regole')">Regole della Casa</button>
+<button onclick="showSection('raccolta')">Raccolta Indifferenziata</button>
+<button onclick="showSection('feedback')">FeedBack</button>
+<button onclick="showSection('beneficenza')">Beneficienza</button>
 </div>
 
 <!-- REGOLE -->
 <div id="regole" class="section">
-<h2>Regole</h2>
+<h2>Regole della Casa</h2>
 <div class="card">
 <ul class="rules">
-<li>💸 Chi rompe paga</li>
-<li>♻️ Rispetta la raccolta</li>
-<li>⚠️ Non disturbare Sara</li>
-<li>🚽 Lascia pulito</li>
-<li>🍺 Solo birra</li>
-<li>🔇 No rumori</li>
-<li>⏰ Rientro entro l'1</li>
-<li>🐱 Rispetto per i gatti</li>
-<li>❌ No rispetto F. Giordano</li>
-<li>🔁 Non infrangere regola 3</li>
+<li>Chi rompe paga</li>
+<li>Rispetta la raccolta differenziata</li>
+<li>Non rompere a Sara</li>
+<li>Lascia il bagno pulito</li>
+<li>Solo birra</li>
+<li>No rumori inutili</li>
+<li>Rientro entro l’1</li>
+<li>Rispetto per i gatti</li>
+<li>No rispetto per F. Giordano</li>
+<li>Non infrangere la regola 3</li>
 </ul>
 </div>
 <button class="back" onclick="goHome()">⬅ Torna</button>
@@ -173,7 +184,7 @@ function copiaIBAN() {
 
 <!-- RACCOLTA -->
 <div id="raccolta" class="section">
-<h2>Raccolta</h2>
+<h2>Raccolta Indifferenziata</h2>
 <div class="card">
 <table>
 <tr>
@@ -191,7 +202,7 @@ function copiaIBAN() {
 </table>
 <br>
 CalendarioPortaAPorta_UD_Web.pdf
-<button>📄 PDF</button>
+<button>PDF</button>
 </a>
 </div>
 <button class="back" onclick="goHome()">⬅ Torna</button>
@@ -199,7 +210,7 @@ CalendarioPortaAPorta_UD_Web.pdf
 
 <!-- FEEDBACK -->
 <div id="feedback" class="section">
-<h2>Feedback</h2>
+<h2>FeedBack</h2>
 <div class="card">
 <form action="mailto:matteoconti206@gmail.com" method="POST" enctype="text/plain">
 <input type="text" name="Nome" placeholder="Nome" required>
@@ -217,7 +228,7 @@ CalendarioPortaAPorta_UD_Web.pdf
 <div class="card">
 <p><strong>Matteo Conti</strong></p>
 <p class="iban">IT35Q03268223000EMH02558777</p>
-<button class="copy-btn" onclick="copiaIBAN()">📋 Copia IBAN</button>
+<button class="copy-btn" onclick="copiaIBAN()">Copia IBAN</button>
 <p>Grazie ❤️</p>
 </div>
 <button class="back" onclick="goHome()">⬅ Torna</button>
@@ -225,3 +236,4 @@ CalendarioPortaAPorta_UD_Web.pdf
 
 </body>
 </html>
+``
