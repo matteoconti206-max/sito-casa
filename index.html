@@ -17,14 +17,13 @@ body {
 /* TITOLI */
 h1 {
     margin-top: 30px;
-    font-size: 2.5rem;
 }
 
 h2 {
     margin-bottom: 20px;
 }
 
-/* BOTTONI */
+/* MENU */
 .menu button {
     display: block;
     margin: 15px auto;
@@ -39,19 +38,25 @@ h2 {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-.menu button:hover {
-    transform: scale(1.05);
+.menu button:active {
+    transform: scale(0.95);
 }
 
 /* SEZIONI */
 .section {
     display: none;
     padding: 20px;
+    animation: fade 0.4s ease;
 }
 
-/* TORNA */
+@keyframes fade {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
 .back {
     margin-top: 20px;
     background: #334155;
@@ -61,11 +66,12 @@ h2 {
 /* CARD */
 .card {
     background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     padding: 15px;
     margin: auto;
     border-radius: 15px;
     max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* REGOLE */
@@ -81,7 +87,6 @@ h2 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
 }
 
 td, th {
@@ -100,11 +105,21 @@ input, textarea {
 
 /* IBAN */
 .iban {
-    font-weight: bold;
     background: black;
     padding: 10px;
     border-radius: 10px;
+    font-weight: bold;
 }
+
+.copy-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 </style>
 
 <script>
@@ -116,6 +131,11 @@ function showSection(id) {
 function goHome() {
     document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
 }
+
+function copiaIBAN() {
+    navigator.clipboard.writeText("IT35Q03268223000EMH02558777");
+    alert("IBAN copiato ✅");
+}
 </script>
 
 </head>
@@ -125,10 +145,10 @@ function goHome() {
 <h1>🏠 Casa</h1>
 
 <div class="menu">
-    <button onclick="showSection('regole')">📜 Regole della Casa</button>
-    <button onclick="showSection('raccolta')">🗑 Raccolta</button>
-    <button onclick="showSection('feedback')">💬 Feedback</button>
-    <button onclick="showSection('beneficenza')">💶 Beneficienza</button>
+<button onclick="showSection('regole')">📜 Regole</button>
+<button onclick="showSection('raccolta')">🗑 Raccolta</button>
+<button onclick="showSection('feedback')">💬 Feedback</button>
+<button onclick="showSection('beneficenza')">💶 Beneficienza</button>
 </div>
 
 <!-- REGOLE -->
@@ -148,14 +168,12 @@ function goHome() {
 <li>🔁 Non infrangere regola 3</li>
 </ul>
 </div>
-
 <button class="back" onclick="goHome()">⬅ Torna</button>
 </div>
 
 <!-- RACCOLTA -->
 <div id="raccolta" class="section">
 <h2>Raccolta</h2>
-
 <div class="card">
 <table>
 <tr>
@@ -171,43 +189,37 @@ function goHome() {
 <td>-</td>
 </tr>
 </table>
-
 <br>
-
 CalendarioPortaAPorta_UD_Web.pdf
 <button>📄 PDF</button>
 </a>
 </div>
-
 <button class="back" onclick="goHome()">⬅ Torna</button>
 </div>
 
 <!-- FEEDBACK -->
 <div id="feedback" class="section">
 <h2>Feedback</h2>
-
 <div class="card">
 <form action="mailto:matteoconti206@gmail.com" method="POST" enctype="text/plain">
 <input type="text" name="Nome" placeholder="Nome" required>
 <input type="text" name="Cognome" placeholder="Cognome" required>
-<textarea name="Messaggio" placeholder="Scrivi..." rows="5"></textarea>
+<textarea name="Messaggio" rows="5" placeholder="Scrivi..."></textarea>
 <button type="submit">Invia</button>
 </form>
 </div>
-
 <button class="back" onclick="goHome()">⬅ Torna</button>
 </div>
 
 <!-- BENEFICENZA -->
 <div id="beneficenza" class="section">
 <h2>Beneficienza</h2>
-
 <div class="card">
 <p><strong>Matteo Conti</strong></p>
 <p class="iban">IT35Q03268223000EMH02558777</p>
+<button class="copy-btn" onclick="copiaIBAN()">📋 Copia IBAN</button>
 <p>Grazie ❤️</p>
 </div>
-
 <button class="back" onclick="goHome()">⬅ Torna</button>
 </div>
 
