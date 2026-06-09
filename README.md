@@ -9,19 +9,16 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    background: #0f172a;
     color: white;
     text-align: center;
 }
 
-/* TITOLI */
+/* TITOLO */
 h1 {
-    margin-top: 30px;
-    font-size: 2.5rem;
-}
-
-h2 {
-    margin-bottom: 20px;
+    margin-top: 25px;
+    font-size: 2.4rem;
+    font-weight: bold;
 }
 
 /* BOTTONI */
@@ -33,15 +30,18 @@ h2 {
     max-width: 350px;
     font-size: 18px;
     border: none;
-    border-radius: 15px;
-    background: rgba(56,189,248,0.9);
-    color: black;
+    border-radius: 14px;
+    background: #1e293b;
+    color: white;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.25s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .menu button:hover {
+    background: #38bdf8;
+    color: black;
     transform: scale(1.05);
 }
 
@@ -49,168 +49,27 @@ h2 {
 .section {
     display: none;
     padding: 20px;
+    animation: fade 0.3s ease;
 }
 
-/* TORNA */
-.back {
-    margin-top: 20px;
-    background: #334155;
-    color: white;
+@keyframes fade {
+    from {opacity: 0; transform: translateY(15px);}
+    to {opacity: 1;}
 }
 
 /* CARD */
 .card {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    padding: 15px;
-    margin: auto;
+    background: #1e293b;
+    padding: 20px;
     border-radius: 15px;
     max-width: 500px;
+    margin: auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
 /* REGOLE */
 .rules li {
-    background: rgba(255,255,255,0.15);
-    margin: 8px 0;
+    margin: 10px 0;
     padding: 10px;
-    border-radius: 10px;
-    list-style: none;
-}
-
-/* TABELLA */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-td, th {
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 8px;
-}
-
-/* FORM */
-input, textarea {
-    width: 90%;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 10px;
-}
-
-/* IBAN */
-.iban {
-    font-weight: bold;
-    background: black;
-    padding: 10px;
-    border-radius: 10px;
-}
-</style>
-
-<script>
-function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-}
-
-function goHome() {
-    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-}
-</script>
-
-</head>
-
-<body>
-
-<h1>🏠 Casa</h1>
-
-<div class="menu">
-    <button onclick="showSection('regole')">📜 Regole della Casa</button>
-    <button onclick="showSection('raccolta')">🗑 Raccolta</button>
-    <button onclick="showSection('feedback')">💬 Feedback</button>
-    <button onclick="showSection('beneficenza')">💶 Beneficienza</button>
-</div>
-
-<!-- REGOLE -->
-<div id="regole" class="section">
-<h2>Regole</h2>
-<div class="card">
-<ul class="rules">
-<li>💸 Chi rompe paga</li>
-<li>♻️ Rispetta la raccolta</li>
-<li>⚠️ Non disturbare Sara</li>
-<li>🚽 Lascia pulito</li>
-<li>🍺 Solo birra</li>
-<li>🔇 No rumori</li>
-<li>⏰ Rientro entro l'1</li>
-<li>🐱 Rispetto per i gatti</li>
-<li>❌ No rispetto F. Giordano</li>
-<li>🔁 Non infrangere regola 3</li>
-</ul>
-</div>
-
-<button class="back" onclick="goHome()">⬅ Torna</button>
-</div>
-
-<!-- RACCOLTA -->
-<div id="raccolta" class="section">
-<h2>Raccolta</h2>
-
-<div class="card">
-<table>
-<tr>
-<th>Dom</th><th>Lun</th><th>Mar</th><th>Mer</th><th>Gio</th><th>Ven</th><th>Sab</th>
-</tr>
-<tr>
-<td>Org</td>
-<td>Ind</td>
-<td>Carta</td>
-<td>Org</td>
-<td>Plastica</td>
-<td>Org</td>
-<td>-</td>
-</tr>
-</table>
-
-<br>
-
-<a href="CalendarioPortaAPorta_UD_Web.pdf" target="_blank">
-<button>📄 PDF</button>
-</a>
-</div>
-
-<button class="back" onclick="goHome()">⬅ Torna</button>
-</div>
-
-<!-- FEEDBACK -->
-<div id="feedback" class="section">
-<h2>Feedback</h2>
-
-<div class="card">
-<form action="mailto:matteoconti206@gmail.com" method="POST" enctype="text/plain">
-<input type="text" name="Nome" placeholder="Nome" required>
-<input type="text" name="Cognome" placeholder="Cognome" required>
-<textarea name="Messaggio" placeholder="Scrivi..." rows="5"></textarea>
-<button type="submit">Invia</button>
-</form>
-</div>
-
-<button class="back" onclick="goHome()">⬅ Torna</button>
-</div>
-
-<!-- BENEFICENZA -->
-<div id="beneficenza" class="section">
-<h2>Beneficienza</h2>
-
-<div class="card">
-<p><strong>Matteo Conti</strong></p>
-<p class="iban">IT35Q03268223000EMH02558777</p>
-<p>Grazie ❤️</p>
-</div>
-
-<button class="back" onclick="goHome()">⬅ Torna</button>
-</div>
-
-</body>
-</html>
-``
+    background: #0f172a;
+    border-radius: 8px;
