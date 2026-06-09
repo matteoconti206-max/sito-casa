@@ -9,23 +9,16 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(45deg, #0f172a, #1e3a8a, #0ea5e9);
-    background-size: 300% 300%;
-    animation: bg 10s infinite alternate;
+    background: #0f172a;
     color: white;
     text-align: center;
 }
 
-@keyframes bg {
-    0% { background-position: left; }
-    100% { background-position: right; }
-}
-
+/* TITOLO */
 h1 {
-    margin-top: 20px;
-    font-size: 2.5rem;
-    color: gold;
-    text-shadow: 0 0 20px rgba(255,215,0,0.7);
+    margin-top: 25px;
+    font-size: 2.4rem;
+    font-weight: bold;
 }
 
 /* BOTTONI */
@@ -37,203 +30,46 @@ h1 {
     max-width: 350px;
     font-size: 18px;
     border: none;
-    border-radius: 20px;
-    background: linear-gradient(45deg, gold, orange);
-    color: black;
+    border-radius: 14px;
+    background: #1e293b;
+    color: white;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 15px gold;
+    transition: 0.25s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .menu button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px gold;
-}
-
-.menu button:active {
-    transform: scale(0.95);
+    background: #38bdf8;
+    color: black;
+    transform: scale(1.05);
 }
 
 /* SEZIONI */
 .section {
     display: none;
     padding: 20px;
-    animation: fade 0.5s;
+    animation: fade 0.3s ease;
 }
 
 @keyframes fade {
-    from {opacity: 0; transform: translateY(20px);}
+    from {opacity: 0; transform: translateY(15px);}
     to {opacity: 1;}
 }
 
 /* CARD */
 .card {
-    background: rgba(0,0,0,0.4);
+    background: #1e293b;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
     max-width: 500px;
     margin: auto;
-    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
 /* REGOLE */
 .rules li {
     margin: 10px 0;
     padding: 10px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-    list-style: none;
-}
-
-/* TABELLA */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-td, th {
-    padding: 8px;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-/* INPUT */
-input, textarea {
-    width: 90%;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 10px;
-}
-
-/* IBAN */
-.iban {
-    background: black;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: gold;
-}
-
-/* TORNA */
-.back {
-    margin-top: 20px;
-    background: crimson;
-    color: white;
-}
-
-/* COPY */
-.copy-btn {
-    background: gold;
-    color: black;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-</style>
-
-<script>
-function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-}
-
-function goHome() {
-    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-}
-
-function copiaIBAN() {
-    navigator.clipboard.writeText("IT35Q03268223000EMH02558777");
-    alert("IBAN copiato ✅");
-}
-</script>
-
-</head>
-
-<body>
-
-<h1>☠️ Casa Pirata ☠️</h1>
-
-<div class="menu">
-<button onclick="showSection('regole')">Regole della Casa</button>
-<button onclick="showSection('raccolta')">Raccolta Indifferenziata</button>
-<button onclick="showSection('feedback')">FeedBack</button>
-<button onclick="showSection('beneficenza')">Beneficienza</button>
-</div>
-
-<!-- REGOLE -->
-<div id="regole" class="section">
-<h2>Regole della Casa</h2>
-<div class="card">
-<ul class="rules">
-<li>Chi rompe paga</li>
-<li>Rispetta la raccolta differenziata</li>
-<li>Non rompere a Sara</li>
-<li>Lascia il bagno pulito</li>
-<li>Solo birra</li>
-<li>No rumori inutili</li>
-<li>Rientro entro l’1</li>
-<li>Rispetto per i gatti</li>
-<li>No rispetto per F. Giordano</li>
-<li>Non infrangere la regola 3</li>
-</ul>
-</div>
-<button class="back" onclick="goHome()">⬅ Torna</button>
-</div>
-
-<!-- RACCOLTA -->
-<div id="raccolta" class="section">
-<h2>Raccolta Indifferenziata</h2>
-<div class="card">
-<table>
-<tr>
-<th>Dom</th><th>Lun</th><th>Mar</th><th>Mer</th><th>Gio</th><th>Ven</th><th>Sab</th>
-</tr>
-<tr>
-<td>Org</td>
-<td>Ind</td>
-<td>Carta</td>
-<td>Org</td>
-<td>Plastica</td>
-<td>Org</td>
-<td>-</td>
-</tr>
-</table>
-<br>
-CalendarioPortaAPorta_UD_Web.pdf
-<button>PDF</button>
-</a>
-</div>
-<button class="back" onclick="goHome()">⬅ Torna</button>
-</div>
-
-<!-- FEEDBACK -->
-<div id="feedback" class="section">
-<h2>FeedBack</h2>
-<div class="card">
-<form action="mailto:matteoconti206@gmail.com" method="POST" enctype="text/plain">
-<input type="text" name="Nome" placeholder="Nome" required>
-<input type="text" name="Cognome" placeholder="Cognome" required>
-<textarea name="Messaggio" rows="5" placeholder="Scrivi..."></textarea>
-<button type="submit">Invia</button>
-</form>
-</div>
-<button class="back" onclick="goHome()">⬅ Torna</button>
-</div>
-
-<!-- BENEFICENZA -->
-<div id="beneficenza" class="section">
-<h2>Beneficienza</h2>
-<div class="card">
-<p><strong>Matteo Conti</strong></p>
-<p class="iban">IT35Q03268223000EMH02558777</p>
-<button class="copy-btn" onclick="copiaIBAN()">Copia IBAN</button>
-<p>Grazie ❤️</p>
-</div>
-<button class="back" onclick="goHome()">⬅ Torna</button>
-</div>
-
-</body>
-</html>
-``
+    background: #0f172a;
+    border-radius: 8px;
